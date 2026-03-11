@@ -1,0 +1,57 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq \
+            texlive-latex-extra \
+            texlive-fonts-extra \
+            texlive-xetex \
+            biber \
+            latexmk
+
+      - name: Build PDF
+        run: |
+          export TEXINPUTS="./src/:./assets//:"
+          export BIBINPUTS="./src/:"
+          mkdir -p build
+          pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build src/cv.tex
+          biber --input-directory=src build/cv
+          pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build src/cv.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build src/cv.tex
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv
+          path: build/cv.pdf
+
+      - name: Get date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to latest release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "CV - ${{ steps.date.outputs.date }}"
+          body: |
+            Automatically built from `main` on ${{ steps.date.outputs.date }}.
+          files: build/cv.pdf
+          make_latest: true
