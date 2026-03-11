@@ -1,0 +1,354 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7.2, 28 August 2024) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" cv.tex
+\iftutex 
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.tex}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.tex}
+
+%% references.bib contains your publications
+\addbibresource{references.bib}
+% \usepackage{academicons}\let\faOrcid\aiOrcid
+\begin{document}
+\name{Ahmed Selmi}
+\tagline{Tech Lead}
+%% You can add multiple photos on the left or right
+\photoR{2.8cm}{photo.jpeg}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{
+  \email{selmi993@gmail.com}
+  \phone{+352 661 273 760}
+  \location{Luxembourg, Luxembourg}
+  \linkedin{ahmedselmi}
+  \github{ahmed-selmi}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Experience}
+\cvevent{Engineering Manager}{ClariumTutor}{March 2025 -- Present}{Luxembourg}
+\begin{itemize}
+    \item Drove the successful launch of a real-time AI voice agent, enabling interactive tutoring sessions and enhancing user engagement.
+    \item Implemented Knowledge Graph RAG solution + Context engineering for Voice Agent
+    \item Built and led a cross-functional engineering team (ML, backend, frontend) to deliver an AI-powered tutoring platform from concept to production.
+    \item Defined the technical vision and architecture, integrating Golang microservices, OpenAPI, gRPC, and modern cloud-native patterns.
+    \item Oversaw the end-to-end development lifecycle, including requirements gathering, sprint planning, code reviews, and production deployment.
+    \item Managed Kubernetes clusters and AWS infrastructure using Terraform, ensuring scalable, secure, and cost-effective operations.
+    \item Established CI/CD pipelines with GitHub Actions, automating testing, deployment, and monitoring for rapid iteration.
+    \item Collaborated closely with product, design, and business stakeholders to align technical solutions with business goals.
+\end{itemize}
+\divider
+\cvevent{ML \& Data Lead}{Spire Global}{Sep 2023 -- March 2026}{Luxembourg}
+\begin{itemize}
+    \item Managed a team of data engineers and scientists, setting technical direction and ensuring timely delivery of platform features.
+    \item Designed and deployed a comprehensive data platform using Databricks, coordinating cross-team efforts with compliance and product teams.
+    \item Developed internal ETL tools to standardize data processing, improving team productivity and data quality.
+    \item Defined and implemented RAG LLM solution architecture, working closely with stakeholders to ensure compliance approval.
+\end{itemize}
+\divider
+\cvevent{ML/Data Tech Lead}{CodeSignal}{Apr 2023 -- Oct 2023}{Luxembourg}
+\begin{itemize}
+    \item Led the Data team, mentoring engineers and driving adoption of MLOps practices for ML model deployment.
+    \item Worked with stakeholders to define project scope, timelines, and deliverables for industry-grade ML assessments.
+    \item Designed and refined evaluation pipelines, ensuring robust and scalable ML training with continuous validation.
+    \item Built automated ML training pipelines, improving team efficiency and model reliability.
+\end{itemize}
+\divider
+\cvevent{Senior Machine Learning Engineer}{Spire Global}{Sep 2021 -- Mar 2023}{Luxembourg}
+\begin{itemize}
+    \item Developed a high-performance PyTorch-based weather forecasting system, leading technical implementation and optimization.
+    \item Built real-time streaming pipelines for aviation and environmental data, coordinating with cross-functional teams.
+    \item Led a research project with the European Space Agency on forecasting, managing stakeholder relationships and deliverables.
+    \item Provided technical mentorship for the aviation ML project, ensuring a strong technical solution and team growth.
+\end{itemize}
+\divider
+\cvevent{Head of Architecture Data Science}{X-Cite S.A.}{Jul 2019 -- Sep 2021}{Luxembourg}
+\begin{itemize}
+    \item Managed a diverse engineering team, overseeing hiring, performance reviews, and professional development initiatives.
+    \item Led the development and maintenance of ETL pipelines across multiple systems, ensuring data quality and reliability.
+    \item Partnered with executive leadership to align data strategy with business objectives and drive organizational growth.
+    \item Engineered scalable cloud-native IoT applications, optimizing data ingestion and processing for improved performance.
+    \item Designed real-time streaming solutions for BigQuery and large-scale analytics, enabling data-driven decision making.
+\end{itemize}
+\divider
+\cvevent{R\&D Data Science Lead}{Integration Objects}{Feb 2017 -- May 2019}{Tunis, Tunisia}
+\begin{itemize}
+    \item Led machine learning prototyping and testing initiatives for industrial applications, managing project timelines and deliverables.
+    \item Developed anomaly detection models and drift detection systems, collaborating with domain experts to ensure practical applicability.
+    \item Mentored junior data scientists and engineers, fostering a culture of continuous learning and technical excellence.
+    \item Led projects in time-series forecasting and multivariate clustering techniques, delivering actionable insights to stakeholders.
+\end{itemize}
+\cvsection{Skills}
+\cvtag{Python}
+\cvtag{Golang}
+\cvtag{Scala}
+\cvtag{Apache Spark}
+\cvtag{Airflow}
+\cvtag{Databricks}
+\cvtag{Terraform}
+\cvtag{Docker}
+\cvtag{Kubernetes}
+\cvtag{BigQuery}
+\cvtag{AWS}
+\cvtag{GCP}
+\cvtag{PostgreSQL}
+\cvtag{Snowflake}
+\cvtag{MLOps}
+\cvtag{CI/CD}
+\cvtag{Linux}
+\cvtag{Kafka}
+\cvtag{REST APIs}
+\cvtag{GraphQL}
+\cvtag{Redis}
+\cvtag{Elasticsearch}
+\cvtag{GitLab CI}
+
+
+\cvsection{Projects}
+
+\cvevent{Cloud Data Migration}{Spire Global}{}{}
+\begin{itemize}
+    \item Led migration of 20TB of Hadoop data to cloud-based Databricks.
+    \item Optimized ETL pipelines, reducing processing time and improving cost efficiency.
+\end{itemize}
+
+\divider
+
+\cvevent{Aviation ML Pipeline}{Spire Global}{}{}
+\begin{itemize}
+    \item Developed a real-time streaming pipeline for aviation data processing.
+    \item Provided mentorship and technical guidance to ensure a robust ML solution.
+\end{itemize}
+
+\divider
+
+\cvevent{ML Assessment Platform}{CodeSignal}{}{}
+\begin{itemize}
+    \item Designed and implemented automated ML assessment pipelines.
+    \item Integrated MLOps best practices for scalable model deployment and evaluation.
+\end{itemize}
+
+\divider
+
+\medskip
+
+\cvsection{A Day of My Life}
+
+\wheelchart{1.5cm}{0.5cm}{%
+  9/8em/accent!30/{Sleep and Rest},
+  8/8em/accent!60/{Work on Data \& ML Engineering},
+  2/8em/accent!40/{Mentoring \& Reviews},
+  2/10em/accent!50/{Learning and Research },
+  3/8em/accent!20/{Gym \& Outdoor Walks},
+  3/8em/accent!40/{Personal Projects and Reading}
+}
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+\newpage
+
+
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{My Life Philosophy}
+
+\begin{quote}
+``Strive for excellence, not perfection, and embrace lifelong learning.''
+\end{quote}
+
+\cvsection{Most Proud of}
+
+\cvachievement{\faTrophy}{Scalable Data Platforms}{Designed and implemented highly scalable ETL pipelines and ML workflows.}
+
+\divider
+
+\cvachievement{\faHeartbeat}{Cloud Migration Success}{Led the migration of 20TB of data from Hadoop to cloud, optimizing performance and cost.}
+
+\divider
+
+\cvachievement{\faHeartbeat}{MLOps Implementation}{Developed automated ML pipelines improving efficiency and deployment speed.}
+
+\cvsection{Strengths}
+
+% Don't overuse these \cvtag boxes — they're just eye-candies and not essential. If something doesn't fit on a single line, it probably works better as part of an itemized list (probably inlined itemized list), or just as a comma-separated list of strengths.
+
+% The `ragged2e` document class option might cause automatic linebreaks between \cvtag to fail.
+% Either remove the ragged2e option; or 
+% add \LaTeXraggedright in the paragraph for these \cvtag
+{\LaTeXraggedright
+\cvtag{Problem Solver}
+\cvtag{Scalable Systems Architect}
+\cvtag{Mentor and Leader}
+\par}
+
+\divider\smallskip
+
+%% ...Or manually add linebreaks yourself
+\cvtag{Machine Learning}
+\cvtag{Cloud Infrastructure}\\
+\cvtag{Data Engineering}
+
+\cvsection{Languages}
+\cvskill{English}{5}
+\cvskill{French}{5}
+\cvskill{Arabic}{5}
+\cvskill{Luxembourgish}{1}
+
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+\medskip
+
+\cvsection{Education}
+
+\cvevent{MSc. in Engineering}{Ecole Nationale d'Ingenieurs de Tunis}{2014 -- 2017}{Tunis}
+\divider
+
+\cvevent{Preparatory Classes for Engineering Studies}{Institut Préparatoire aux Études d'Ingénieurs de Tunis}{2012 -- 2014}{Tunis}
+
+
+\cvsection{Publications}
+
+%% Specify your last name(s) and first name(s) as given in the .bib to automatically bold your own name in the publications list.
+%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+%% You can specify multiple names, especially if you have changed your name or if you need to highlight multiple authors.
+\mynames{Lim/Lian\bibnamedelima Tze,
+  Wong/Lian\bibnamedelima Tze,
+  Lim/Tracy,
+  Lim/L.\bibnamedelimi T.}
+%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+\nocite{*}
+
+\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+\divider
+
+\printbibliography[heading=pubtype,title={\printinfo{}{Journal Articles}},type=article]
+
+\divider
+
+\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+
+
+\end{paracol}
+
+
+\end{document}
